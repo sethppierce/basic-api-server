@@ -1,36 +1,55 @@
-# package.json Notes:
+# LAB - Class 03
 
-## For React Applications
+## Project: basic-api-server
 
- To deploy your application at GitHub pages, you'll need to add a home page property to your package.json which points to the deployed base URL of your GitHub Pages site.
+### Author: Seth Pierce
 
- *NOTE: This will break deployments to other hosting services such as Netlify, Vercel, or AWS Amplify, so if you later wish to deploy there, remove this property completely*
+### Problem Domain
 
-     {
-       "homepage": "https://yourname.github.io/repository-name"
-     }
+  Build a REST API using Express, by creating a proper series of endpoints that perform CRUD operations on a database, using the REST standard
 
-## Node / Express Applications
+### Links and Resources
 
-### For Tests
-Your Scripts section should have the following, so that you can easily run tests locally and in your CI
+- [ci/cd](https://github.com/sethppierce/basic-api-server/actions) (GitHub Actions)
+- [prod deployment](https://basic-api-server-dsob.onrender.com/) (when applicable)
 
-  "scripts": {
-    "start": "node index.js",
-    "test": "jest --verbose --coverage",
-    "test-watch": "jest --watchAll --verbose --coverage"
-},
+### Setup
 
+#### `.env` requirements (where applicable)
 
-### For NPM Modules
+- PORT: 3001
+- DATABASE_URL=postgres://localhost:5432/api-app?sslmode=disable
 
-If you are creating a module to deploy at NPM, you'll want a "bin" section that identifies the name of the global command to run and your .js file that runs when called.
+#### How to initialize/run your application (where applicable)
 
-"bin": {
-    "fetch": "index.js"
-}
+- nodemon
 
-Additionally, that file should have as it's first line, so that it'll run without having to type "node filename.js" every time
+#### Features / Routes
 
-#!/usr/bin/env node
+- Feature One - Add a Record
+- POST - path `/pets and /games`
+- Feature Two - Get all Records
+- GET - path `/pets and /games`
+- Feature Three - Get One Record
+- GET - path `/pets/:id and /games/:id`
+- Feature Four - Update a Record
+- PUT - path `/pets and /games`
+- Feature Five - Delete a Record
+- DELETE - path `/pets/:id and /games/:id`
 
+#### Tests
+
+- How do you run tests?
+  - npm test
+- Any tests of note?
+  - handles root path
+  - handles invalid requests
+  - handles errors
+  - handles invalid method
+  - logs as expected
+  - tests all CRUD functionality for `/pets`
+  - tests all CRUD functionality for `/games`
+
+#### UML
+
+![UML](./assets/lab03-uml.png)
